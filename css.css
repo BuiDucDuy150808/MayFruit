@@ -1,0 +1,596 @@
+
+/* =========================================
+   AETHERIA - MEDIEVAL FANTASY
+   Main stylesheet
+========================================= */
+
+
+/* 01. ROOT VARIABLES */
+
+:root {
+    --forest: #101912;
+    --forest-light: #1D2B20;
+    --forest-soft: #26372A;
+
+    --gold: #C7A76A;
+    --gold-light: #E1C58F;
+
+    --parchment: #E9E1CF;
+    --muted: #A9AA98;
+
+    --line: rgba(232, 225, 207, 0.18);
+
+    --heading-font: "Cormorant Garamond", Georgia, serif;
+    --body-font: "Be Vietnam Pro", Arial, sans-serif;
+
+    --transition: 0.4s ease;
+}
+
+
+/* 02. RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--forest);
+    color: var(--parchment);
+    font-family: var(--body-font);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* 03. HEADER */
+
+.header {
+    width: 100%;
+    min-height: 85px;
+    padding: 0 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    background: rgba(16, 25, 18, 0.55);
+    border-bottom: 1px solid var(--line);
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-family: var(--heading-font);
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 4px;
+
+    color: var(--parchment);
+}
+
+.logo-symbol {
+    color: var(--gold);
+    font-size: 30px;
+}
+
+
+/* NAVIGATION */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.navigation a {
+    position: relative;
+
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1px;
+
+    color: var(--muted);
+
+    transition: var(--transition);
+}
+
+.navigation a::after {
+    content: "";
+
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--gold);
+
+    transition: var(--transition);
+}
+
+.navigation a:hover {
+    color: var(--gold-light);
+}
+
+.navigation a:hover::after {
+    width: 100%;
+}
+
+
+/* 04. HERO SECTION */
+
+.hero {
+    min-height: 760px;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    padding: 120px 12%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10, 18, 12, 0.94),
+            rgba(10, 18, 12, 0.65),
+            rgba(10, 18, 12, 0.12)
+        ),
+        linear-gradient(
+            0deg,
+            rgba(10, 18, 12, 0.65),
+            transparent
+        ),
+        url("assets/images/background.jpg")
+        center / cover no-repeat;
+}
+
+
+/* HERO CONTENT */
+
+.hero-content {
+    max-width: 680px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-subtitle {
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-family: var(--heading-font);
+
+    font-size: clamp(65px, 9vw, 120px);
+    font-weight: 400;
+
+    line-height: 0.95;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--gold);
+    font-style: italic;
+}
+
+.hero-description {
+    max-width: 450px;
+
+    margin-top: 30px;
+
+    color: rgba(233, 225, 207, 0.78);
+
+    font-size: 13px;
+    line-height: 2.1;
+}
+
+
+/* HERO BUTTON */
+
+.hero-button {
+    display: inline-block;
+
+    margin-top: 38px;
+    padding: 16px 28px;
+
+    background: var(--gold);
+    color: var(--forest);
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    transition: var(--transition);
+}
+
+.hero-button:hover {
+    background: var(--gold-light);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+
+/* 05. SECTION GENERAL */
+
+section:not(.hero) {
+    position: relative;
+}
+
+.section-heading {
+    margin-bottom: 55px;
+}
+
+.section-heading > p:first-child {
+    color: var(--gold);
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+.section-heading h2 {
+    font-family: var(--heading-font);
+
+    font-size: clamp(42px, 5vw, 70px);
+    font-weight: 400;
+
+    line-height: 1.1;
+}
+
+.section-heading h2 span {
+    color: var(--gold);
+    font-style: italic;
+}
+
+
+/* 06. LORE SECTION */
+
+.lore {
+    padding: 130px 15%;
+
+    background: var(--parchment);
+    color: #263126;
+}
+
+.lore .section-heading > p:first-child {
+    color: #987B4D;
+}
+
+.lore .section-heading h2 span {
+    color: #987B4D;
+}
+
+.lore-content {
+    max-width: 780px;
+}
+
+.lore-content p {
+    margin-bottom: 22px;
+
+    font-size: 14px;
+    line-height: 2.2;
+
+    color: #596052;
+}
+
+
+/* 07. REALMS SECTION */
+
+.realms {
+    padding: 130px 10%;
+
+    background: var(--forest);
+}
+
+.realm-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+
+/* REALM CARDS */
+
+.realm-card {
+    min-height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    position: relative;
+    overflow: hidden;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(10, 18, 12, 0.95),
+            rgba(10, 18, 12, 0.1)
+        );
+
+    border: 1px solid var(--line);
+
+    transition: var(--transition);
+}
+
+.realm-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(10, 18, 12, 0.95),
+            transparent 75%
+        );
+
+    transition: var(--transition);
+}
+
+.realm-card h3,
+.realm-card p {
+    position: relative;
+    z-index: 1;
+}
+
+.realm-card h3 {
+    font-family: var(--heading-font);
+    font-size: 36px;
+    font-weight: 500;
+
+    color: var(--parchment);
+}
+
+.realm-card p {
+    margin-top: 8px;
+
+    font-size: 11px;
+    line-height: 1.9;
+
+    color: var(--muted);
+}
+
+.realm-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+}
+
+
+/* 08. CREATURES SECTION */
+
+.creatures {
+    padding: 130px 12%;
+    text-align: center;
+
+    background: var(--forest-light);
+}
+
+.creatures > p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* 09. ABOUT SECTION */
+
+.about {
+    padding: 140px 15%;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(199, 167, 106, 0.12),
+            transparent 65%
+        ),
+        var(--forest);
+}
+
+.about h2 {
+    max-width: 850px;
+    margin: 0 auto;
+
+    font-family: var(--heading-font);
+    font-size: clamp(42px, 6vw, 75px);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.about p {
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* 10. FOOTER */
+
+.footer {
+    padding: 40px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #0B120D;
+
+    border-top: 1px solid var(--line);
+}
+
+.footer p {
+    color: var(--muted);
+
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.footer p span {
+    color: var(--gold);
+}
+
+
+/* 11. RESPONSIVE - TABLET */
+
+@media (max-width: 900px) {
+
+    .header {
+        padding: 0 5%;
+    }
+
+    .navigation {
+        gap: 18px;
+    }
+
+    .navigation a {
+        font-size: 10px;
+    }
+
+    .hero {
+        padding: 120px 8%;
+    }
+
+    .lore,
+    .realms,
+    .creatures,
+    .about {
+        padding: 100px 8%;
+    }
+
+    .realm-container {
+        gap: 15px;
+    }
+
+    .realm-card {
+        min-height: 350px;
+        padding: 20px;
+    }
+
+}
+
+
+/* 12. RESPONSIVE - MOBILE */
+
+@media (max-width: 650px) {
+
+    .header {
+        min-height: 72px;
+        padding: 0 6%;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .hero {
+        min-height: 700px;
+        height: 90vh;
+
+        padding: 100px 7%;
+
+        background-position: center;
+    }
+
+    .hero h1 {
+        font-size: 68px;
+    }
+
+    .hero-description {
+        font-size: 11px;
+    }
+
+    .lore,
+    .realms,
+    .creatures,
+    .about {
+        padding: 80px 7%;
+    }
+
+    .realm-container {
+        grid-template-columns: 1fr;
+    }
+
+    .realm-card {
+        min-height: 400px;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+    }
+
+}
+
+
+/* 13. ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+
+}
